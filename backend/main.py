@@ -2,6 +2,7 @@
 import requests
 from PIL import Image
 from transformers import BlipProcessor, BlipForConditionalGeneration
+from fastapi.middleware.cors import CORSMiddleware
 
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-large")
 model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-large")
@@ -9,6 +10,14 @@ model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-capt
 from fastapi import FastAPI
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # you can replace "*" with your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/recognise")
 async def recognise(request :dict):
