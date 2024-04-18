@@ -2,7 +2,7 @@
 
 import { useEdgeStore } from '@/lib/edgestore'
 import { useMutation } from '@tanstack/react-query'
-import { CloudIcon, ImageIcon } from 'lucide-react'
+import { CloudIcon, ImageIcon, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import Dropzone from 'react-dropzone'
 import { toast } from 'sonner'
@@ -109,7 +109,8 @@ export default function ImageUpload({
                                         </div>
                                         {uploadProgress === 100 ? (
                                             <div className='flex items-center justify-center gap-1 pt-2 text-center text-sm text-zinc-700'>
-                                                Image uploaded successfully
+                                                <Loader2 className='size-4 animate-spin' />
+                                                Processing...
                                             </div>
                                         ) : null}
                                     </div>
