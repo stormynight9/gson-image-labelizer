@@ -31,7 +31,7 @@ export default function ImageUpload({
                     setUploadProgress(progress)
                 },
             })
-            await new Promise((resolve) => setTimeout(resolve, 1500))
+            await new Promise((resolve) => setTimeout(resolve, 500))
             addToImages({
                 url: response.url,
                 label: null,
