@@ -37,10 +37,12 @@ export default function ImageUpload({
                 label: null,
             })
             setIsOpen(false)
-            const label = await recognize(response.url)
-            updateImage(response.url, label.result)
+            const data = await recognize(response.url)
+            updateImage(response.url, data.label)
         },
-        onSuccess: () => {},
+        onSuccess: () => {
+            toast.success('Image labeled successfully')
+        },
         onError: () => {
             toast.error('Error uploading image')
         },
