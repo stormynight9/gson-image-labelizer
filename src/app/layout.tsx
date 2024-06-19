@@ -10,6 +10,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     title: 'gson-image-labelizer',
     description: 'Label your images with ease',
+    icons: {
+        icon: '/favicon.svg',
+    },
 }
 
 export default function RootLayout({
