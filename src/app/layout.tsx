@@ -19,9 +19,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <head>
-                <link rel='icon' href='/favicon.ico' sizes='any' />
-            </head>
+            <head></head>
             <body className={inter.className}>
                 <Providers>
                     <EdgeStoreProvider>
