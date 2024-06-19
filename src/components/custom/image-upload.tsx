@@ -2,7 +2,7 @@
 
 import { useEdgeStore } from '@/lib/edgestore'
 import { useMutation } from '@tanstack/react-query'
-import { CloudIcon, ImageIcon } from 'lucide-react'
+import { CloudIcon, ImageIcon, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 import Dropzone from 'react-dropzone'
 import { toast } from 'sonner'
@@ -31,16 +31,18 @@ export default function ImageUpload({
                     setUploadProgress(progress)
                 },
             })
-            await new Promise((resolve) => setTimeout(resolve, 1500))
+            await new Promise((resolve) => setTimeout(resolve, 500))
             addToImages({
                 url: response.url,
                 label: null,
             })
             setIsOpen(false)
-            const label = await recognize(response.url)
-            updateImage(response.url, label.result)
+            const data = await recognize(response.url)
+            updateImage(response.url, data.label)
         },
-        onSuccess: () => {},
+        onSuccess: () => {
+            toast.success('Image labeled successfully')
+        },
         onError: () => {
             toast.error('Error uploading image')
         },
@@ -107,7 +109,8 @@ export default function ImageUpload({
                                         </div>
                                         {uploadProgress === 100 ? (
                                             <div className='flex items-center justify-center gap-1 pt-2 text-center text-sm text-zinc-700'>
-                                                Image uploaded successfully
+                                                <Loader2 className='size-4 animate-spin' />
+                                                Processing...
                                             </div>
                                         ) : null}
                                     </div>

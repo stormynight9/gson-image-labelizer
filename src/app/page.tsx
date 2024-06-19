@@ -51,8 +51,6 @@ export default function Home() {
         if (images.length === 0) return
         localStorage.setItem('images', JSON.stringify(images))
     }, [images])
-
-    console.log(images)
     return (
         <main className='flex justify-center items-center min-h-screen flex-col space-y-4'>
             <h1 className='text-3xl md:text-5xl font-semibold mt-5'>
@@ -110,7 +108,7 @@ export default function Home() {
                                     <Loader2 className='size-6  animate-spin' />
                                 </div>
                             )}
-                            <div className='absolute top-0 right-0 p-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100'>
+                            <div className='absolute top-0 right-0 p-2 md:opacity-0 transition-opacity opacity-100 duration-200 group-hover:opacity-100'>
                                 <Button
                                     size={'icon'}
                                     variant={'ghost'}
