@@ -10,9 +10,6 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     title: 'gson-image-labelizer',
     description: 'Label your images with ease',
-    icons: {
-        icon: '/favicon.ico',
-    },
 }
 
 export default function RootLayout({
@@ -22,6 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
+            <head>
+                <link rel='icon' href='/favicon.ico' sizes='any' />
+            </head>
             <body className={inter.className}>
                 <Providers>
                     <EdgeStoreProvider>
