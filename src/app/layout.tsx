@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'gson-image-labelizer',
     description: 'Label your images with ease',
     icons: {
-        icon: '/favicon.svg',
+        icon: '/favicon.ico',
     },
 }
 
